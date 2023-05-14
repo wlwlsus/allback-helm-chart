@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: eureka
-          image: your-eureka-image:latest
+          image: {{ .Values.eureka.image.repository }}:{{ .Values.eureka.image.tag }}
           ports:
             - containerPort: {{ (index .Values.eureka.ports 0).port }}
