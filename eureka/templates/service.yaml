@@ -9,3 +9,4 @@ spec:
     - protocol: TCP
       port: {{ (index .Values.eureka.ports 0).port }}
       targetPort: {{ (index .Values.eureka.ports 0).targetPort }}
+  type: LoadBalancer
