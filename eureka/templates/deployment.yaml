@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: eureka-deployment
 spec:
-  replicas: { { .Values.eureka.replicas } }
+  replicas: {{ .Values.eureka.replicas }}
   selector:
     matchLabels:
       app: eureka
@@ -16,4 +16,4 @@ spec:
         - name: eureka
           image: your-eureka-image:latest
           ports:
-            - containerPort: { { index .Values.eureka.ports 0 "port" } }
+            - containerPort: {{ index .Values.eureka.ports 0 "port" }}
