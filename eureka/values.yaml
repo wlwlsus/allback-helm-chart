@@ -1,11 +1,7 @@
-# Global configuration
-global:
-  replicas: 3
-
 # Eureka configuration
 eureka:
   enabled: true
-  replicas: 2
+  replicas: 1
   ports:
     - name: eureka
       port: 8761
