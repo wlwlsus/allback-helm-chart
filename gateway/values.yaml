@@ -15,7 +15,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
   hosts:
-    - host: gateway.allback.site
+    - host: api.allback.site
       paths:
         - /
   tls: []
