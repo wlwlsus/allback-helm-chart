@@ -18,5 +18,3 @@ ingress:
     - host: api.allback.site
       paths:
         - /
-
-resources: {}
