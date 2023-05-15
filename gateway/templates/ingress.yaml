@@ -10,16 +10,18 @@ spec:
   rules:
   {{- range .Values.ingress.hosts }}
     - host: {{ .host }}
-      http:
-        paths:
-        {{- range .paths }}
-          - path: {{ . }}
-            pathType: Prefix
-            backend:
-              service:
-                name: gateway
-                port:
-                  number: {{ $.Values.service.port }}
-        {{- end }}
+      paths:
+        - /
+      # http:
+      #   paths:
+      #   {{- range .paths }}
+      #     - path: {{ . }}
+      #       pathType: Prefix
+      #       backend:
+      #         service:
+      #           name: gateway
+      #           port:
+      #             number: {{ $.Values.service.port }}
+      #   {{- end }}
   {{- end }}
 {{- end }}
