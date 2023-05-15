@@ -12,16 +12,5 @@ spec:
     - host: {{ .host }}
       paths:
         - /
-      # http:
-      #   paths:
-      #   {{- range .paths }}
-      #     - path: {{ . }}
-      #       pathType: Prefix
-      #       backend:
-      #         service:
-      #           name: gateway
-      #           port:
-      #             number: {{ $.Values.service.port }}
-      #   {{- end }}
   {{- end }}
 {{- end }}
