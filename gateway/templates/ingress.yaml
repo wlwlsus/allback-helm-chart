@@ -8,14 +8,17 @@ metadata:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:
   rules:
-    - host: {{ .Values.ingress.hosts.host }}
+  {{- range .Values.ingress.hosts }}
+    - host: {{ .host }}
       http:
         paths:
-          - path: {{ .Values.ingress.hosts.paths | first }}
+        {{- range .paths }}
+          - path: {{ . }}
             pathType: Prefix
             backend:
               service:
-                name: {{ include "gateway-chart.fullname" . }}
+                name: {{ include "gateway-chart.fullname" $ }}
                 port:
-                  number: {{ .Values.service.port }}
-{{- end }}
+                  number: {{ $.Values.service.port }}
+        {{- end }}
+  {{- end }}
