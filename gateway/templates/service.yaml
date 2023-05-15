@@ -1,9 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "gateway-service.fullname" . }}
-  labels:
-    {{- include "gateway-service.labels" . | nindent 4 }}
+  name: gateway-service
 spec:
   type: {{ .Values.service.type }}
   ports:

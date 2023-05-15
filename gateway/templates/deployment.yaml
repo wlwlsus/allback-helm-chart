@@ -1,22 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "gateway-service.fullname" . }}
-  labels:
-    {{- include "gateway-service.labels" . | nindent 4 }}
+  name: gateway-deployment
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "gateway-service.selectorLabels" . | nindent 6 }}
+      app: gateway
   template:
     metadata:
       labels:
-        {{- include "gateway-service.selectorLabels" . | nindent 8 }}
+        app: gateway
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
