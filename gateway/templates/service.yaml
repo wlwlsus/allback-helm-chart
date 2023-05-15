@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: eureka-service
+  name: {{ include "gateway-service.fullname" . }}
+  labels:
+    {{- include "gateway-service.labels" . | nindent 4 }}
 spec:
-  selector:
-    app: eureka
+  type: {{ .Values.service.type }}
   ports:
-    - protocol: TCP
-      port: {{ (index .Values.eureka.ports 0).port }}
-      targetPort: {{ (index .Values.eureka.ports 0).targetPort }}
-  type: LoadBalancer
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "gateway-service.selectorLabels" . | nindent 4 }}

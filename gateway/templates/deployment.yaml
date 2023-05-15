@@ -1,19 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka-deployment
+  name: {{ include "gateway-service.fullname" . }}
+  labels:
+    {{- include "gateway-service.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.eureka.replicas }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: eureka
+      {{- include "gateway-service.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: eureka
+        {{- include "gateway-service.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-        - name: eureka
-          image: {{ .Values.eureka.image.repository }}:{{ .Values.eureka.image.tag }}
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: {{ (index .Values.eureka.ports 0).port }}
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}

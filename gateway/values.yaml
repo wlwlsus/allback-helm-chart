@@ -1,15 +1,23 @@
-# Global configuration
-global:
-  replicas: 3
+replicaCount: 1
 
-# Eureka configuration
-eureka:
+image:
+  repository: wlwlsus/back-gateway
+  pullPolicy: IfNotPresent
+  tag: "1.0.0"
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
   enabled: true
-  replicas: 2
-  ports:
-    - name: eureka
-      port: 8761
-      targetPort: 8761
-  image:
-    repository: wlwlsus/back-discovery
-    tag: 16
+  className: nginx
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  hosts:
+    - host: 
+      paths:
+        - /
+  tls: []
+
+resources: {}

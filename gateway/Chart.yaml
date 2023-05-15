@@ -1,8 +1,5 @@
 apiVersion: v2
-name: allback-app
-version: 1.0.0
-description: SSAFY A806 Helm Chart
-maintainers:
-  - name: Wonjoon Seong
-    email: cadqe13@gmail.com
+name: gateway-service
+description: A Helm chart for Spring Cloud Gateway Service with Ingress
+version: 0.1.0
 appVersion: 1.0.0
