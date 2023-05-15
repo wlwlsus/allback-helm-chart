@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka-deployment
+  name: user-deployment
 spec:
-  replicas: {{ .Values.eureka.replicas }}
+  replicas: {{ .Values.user.replicas }}
   selector:
     matchLabels:
-      app: eureka
+      app: user
   template:
     metadata:
       labels:
-        app: eureka
+        app: user
     spec:
       containers:
-        - name: eureka
-          image: {{ .Values.eureka.image.repository }}:{{ .Values.eureka.image.tag }}
+        - name: user
+          image: {{ .Values.user.image.repository }}:{{ .Values.user.image.tag }}
           ports:
-            - containerPort: {{ (index .Values.eureka.ports 0).port }}
+            - containerPort: {{ (index .Values.user.ports 0).port }}
