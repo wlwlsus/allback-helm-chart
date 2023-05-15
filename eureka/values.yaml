@@ -10,3 +10,6 @@ eureka:
     - name: eureka
       port: 8761
       targetPort: 8761
+  image:
+    repository: wlwlsus/back-discovery
+    tag: 16
