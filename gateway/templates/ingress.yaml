@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "gateway-chart.fullname" . }}
+  name: {{ include "gateway-chart.name" . }}
   annotations:
     kubernetes.io/ingress.class: {{ .Values.ingress.className }}
 {{ toYaml .Values.ingress.annotations | indent 4 }}
@@ -17,9 +17,8 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "gateway-chart.fullname" $ }}
+                name: {{ include "gateway-chart.name" $ }}
                 port:
                   number: {{ $.Values.service.port }}
         {{- end }}
   {{- end }}
-{{- end }}
