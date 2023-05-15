@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: gateway
+  name: gateway-ingress
   annotations:
     kubernetes.io/ingress.class: {{ .Values.ingress.className }}
 {{ toYaml .Values.ingress.annotations | indent 4 }}
