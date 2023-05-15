@@ -1,5 +1,8 @@
 apiVersion: v2
-name: gateway-service
-description: A Helm chart for Spring Cloud Gateway Service with Ingress
-version: 0.1.0
+name: gateway-chart
+version: 1.0.0
 appVersion: 1.0.0
+description: SSAFY A806 API Gateway Helm Chart
+maintainers:
+  - name: Wonjoon Seong
+    email: cadqe13@gmail.com

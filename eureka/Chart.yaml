@@ -1,8 +1,8 @@
 apiVersion: v2
-name: allback-app
+name: eureka-chart
 version: 1.0.0
-description: SSAFY A806 Helm Chart
+appVersion: 1.0.0
+description: SSAFY A806 Eureka Helm Chart
 maintainers:
   - name: Wonjoon Seong
     email: cadqe13@gmail.com
-appVersion: 1.0.0
