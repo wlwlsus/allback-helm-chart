@@ -1,4 +1,4 @@
-concert:
+payment:
   enabled: true
   replicas: 3
   ports:
