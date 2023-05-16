@@ -1,6 +1,6 @@
 user:
   enabled: true
-  replicas: 1
+  replicas: 3
   ports:
     - name: user
       port: 8000
