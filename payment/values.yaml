@@ -3,8 +3,8 @@ concert:
   replicas: 3
   ports:
     - name: payment
-      port: 8090
-      targetPort: 8090
+      port: 8001
+      targetPort: 8001
   image:
     repository: wlwlsus/back-payment
     tag: 3
