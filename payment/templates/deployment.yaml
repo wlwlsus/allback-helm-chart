@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka-deployment
+  name: payment-deployment
 spec:
-  replicas: {{ .Values.eureka.replicas }}
+  replicas: {{ .Values.payment.replicas }}
   selector:
     matchLabels:
-      app: eureka
+      app: payment
   template:
     metadata:
       labels:
-        app: eureka
+        app: payment
     spec:
       containers:
-        - name: eureka
-          image: {{ .Values.eureka.image.repository }}:{{ .Values.eureka.image.tag }}
+        - name: payment
+          image: {{ .Values.payment.image.repository }}:{{ .Values.payment.image.tag }}
           ports:
-            - containerPort: {{ (index .Values.eureka.ports 0).port }}
+            - containerPort: {{ (index .Values.payment.ports 0).port }}
