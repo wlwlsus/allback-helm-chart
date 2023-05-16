@@ -6,5 +6,5 @@ concert:
       port: 8002
       targetPort: 8002
   image:
-    repository: wlwlsus/back-user
+    repository: wlwlsus/back-concert
     tag: 6
