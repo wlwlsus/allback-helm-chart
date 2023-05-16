@@ -1,9 +1,9 @@
-replicaCount: 5
+replicaCount: 1
 
 image:
   repository: wlwlsus/back-gateway
   pullPolicy: IfNotPresent
-  tag: 8
+  tag: 12
 
 service:
   type: ClusterIP

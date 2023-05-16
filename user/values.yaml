@@ -1,10 +1,10 @@
 user:
   enabled: true
-  replicas: 3
+  replicas: 1
   ports:
     - name: user
       port: 8000
       targetPort: 8080
   image:
     repository: wlwlsus/back-user
-    tag: 6
+    tag: 9

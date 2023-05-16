@@ -8,4 +8,4 @@ eureka:
       targetPort: 8761
   image:
     repository: wlwlsus/back-discovery
-    tag: 16
+    tag: 23
