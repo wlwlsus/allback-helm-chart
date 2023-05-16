@@ -1,8 +1,8 @@
 apiVersion: v2
-name: admin-chart
+name: payment-chart
 version: 1.0.0
 appVersion: 1.0.0
-description: SSAFY A806 Admin Helm Chart
+description: SSAFY A806 Payment Helm Chart
 maintainers:
   - name: Wonjoon Seong
     email: cadqe13@gmail.com

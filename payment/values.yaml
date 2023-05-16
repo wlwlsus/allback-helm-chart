@@ -2,9 +2,9 @@ concert:
   enabled: true
   replicas: 3
   ports:
-    - name: admin
+    - name: payment
       port: 8090
       targetPort: 8090
   image:
-    repository: wlwlsus/back-admin
+    repository: wlwlsus/back-payment
     tag: 3
