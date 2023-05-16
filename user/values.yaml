@@ -7,4 +7,4 @@ user:
       targetPort: 8080
   image:
     repository: wlwlsus/back-user
-    tag: 6
+    tag: 7
