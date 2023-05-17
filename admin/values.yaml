@@ -3,7 +3,7 @@ admin:
   replicas: 3
   ports:
     - name: admin
-      port: 8090
+      port: 80
       targetPort: 8090
   image:
     repository: wlwlsus/back-admin

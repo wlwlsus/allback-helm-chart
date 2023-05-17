@@ -3,7 +3,7 @@ concert:
   replicas: 3
   ports:
     - name: concert
-      port: 8002
+      port: 80
       targetPort: 8002
   image:
     repository: wlwlsus/back-concert

@@ -3,7 +3,7 @@ payment:
   replicas: 3
   ports:
     - name: payment
-      port: 8001
+      port: 80
       targetPort: 8001
   image:
     repository: wlwlsus/back-payment
