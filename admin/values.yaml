@@ -7,4 +7,4 @@ admin:
       targetPort: 8090
   image:
     repository: wlwlsus/back-admin
-    tag: 11
+    tag: 12
