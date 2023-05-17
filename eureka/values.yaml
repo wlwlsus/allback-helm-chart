@@ -1,7 +1,7 @@
 # Eureka configuration
 eureka:
   enabled: true
-  replicas: 3
+  replicas: 1
   ports:
     - name: eureka
       port: 8761
