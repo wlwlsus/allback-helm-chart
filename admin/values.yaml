@@ -1,15 +1,10 @@
-# Global configuration
-global:
-  replicas: 3
-
-# Eureka configuration
-eureka:
+admin:
   enabled: true
-  replicas: 2
+  replicas: 3
   ports:
-    - name: eureka
-      port: 8761
-      targetPort: 8761
+    - name: admin
+      port: 8090
+      targetPort: 8090
   image:
-    repository: wlwlsus/back-discovery
-    tag: 16
+    repository: wlwlsus/back-admin
+    tag: 6

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka-deployment
+  name: concert-deployment
 spec:
-  replicas: {{ .Values.eureka.replicas }}
+  replicas: {{ .Values.concert.replicas }}
   selector:
     matchLabels:
-      app: eureka
+      app: concert
   template:
     metadata:
       labels:
-        app: eureka
+        app: concert
     spec:
       containers:
-        - name: eureka
-          image: {{ .Values.eureka.image.repository }}:{{ .Values.eureka.image.tag }}
+        - name: concert
+          image: {{ .Values.concert.image.repository }}:{{ .Values.concert.image.tag }}
           ports:
-            - containerPort: {{ (index .Values.eureka.ports 0).port }}
+            - containerPort: {{ (index .Values.concert.ports 0).port }}

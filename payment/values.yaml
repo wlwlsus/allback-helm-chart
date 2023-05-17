@@ -1,15 +1,10 @@
-# Global configuration
-global:
-  replicas: 3
-
-# Eureka configuration
-eureka:
+payment:
   enabled: true
-  replicas: 2
+  replicas: 3
   ports:
-    - name: eureka
-      port: 8761
-      targetPort: 8761
+    - name: payment
+      port: 8001
+      targetPort: 8001
   image:
-    repository: wlwlsus/back-discovery
-    tag: 16
+    repository: wlwlsus/back-payment
+    tag: 5
