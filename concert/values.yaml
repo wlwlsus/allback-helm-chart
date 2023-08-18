@@ -7,4 +7,4 @@ concert:
       targetPort: 8002
   image:
     repository: wlwlsus/back-concert
-    tag: 8
+    tag: 5
