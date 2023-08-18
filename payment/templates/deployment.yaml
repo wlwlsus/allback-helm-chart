@@ -15,5 +15,36 @@ spec:
       containers:
         - name: payment
           image: {{ .Values.payment.image.repository }}:{{ .Values.payment.image.tag }}
+                    env:
+            - name: KAKAO_APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: payment-app-secrets
+                  key: kakao.client_id
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: payment-app-secrets
+                  key: database.username
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: payment-app-secrets
+                  key: database.password
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: payment-app-secrets
+                  key: database.url
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: payment-app-secrets
+                  key: database.port
+            - name: DATABASE_USER_DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: payment-app-secrets
+                  key: database.dbName
           ports:
             - containerPort: {{ (index .Values.payment.ports 0).port }}
