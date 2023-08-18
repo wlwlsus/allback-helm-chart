@@ -10,3 +10,18 @@ spec:
       port: {{ (index .Values.user.ports 0).port }}
       targetPort: {{ (index .Values.user.ports 0).targetPort }}
   type: ClusterIP
+---
+{{- if .Values.user.loadBalancer.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service-login
+spec:
+  selector:
+    app: user
+  ports:
+    - protocol: TCP
+      port: {{ .Values.user.loadBalancer.port }}
+      targetPort: {{ (index .Values.user.ports 0).targetPort }}
+  type: LoadBalancer
+{{- end }}

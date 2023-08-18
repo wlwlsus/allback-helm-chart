@@ -8,3 +8,6 @@ user:
   image:
     repository: wlwlsus/back-user
     tag: 2
+  loadBalancer:
+    enabled: true
+    port: 80
