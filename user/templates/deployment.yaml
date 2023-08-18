@@ -15,5 +15,51 @@ spec:
       containers:
         - name: user
           image: {{ .Values.user.image.repository }}:{{ .Values.user.image.tag }}
+          env:
+            - name: KAKAO_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: kakao.client_id
+            - name: KAKAO_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: kakao.secret
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: database.username
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: database.password
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: database.url
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: database.port
+            - name: DATABASE_USER_DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: database.dbName
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: redis.host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: user-app-secrets
+                  key: redis.port
           ports:
             - containerPort: {{ (index .Values.user.ports 0).port }}
