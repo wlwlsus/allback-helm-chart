@@ -7,4 +7,4 @@ front:
       targetPort: 3000
   image:
     repository: wlwlsus/front-allback
-    tag: 7
+    tag: 9
