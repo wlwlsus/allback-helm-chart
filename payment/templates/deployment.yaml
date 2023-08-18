@@ -15,7 +15,7 @@ spec:
       containers:
         - name: payment
           image: {{ .Values.payment.image.repository }}:{{ .Values.payment.image.tag }}
-                    env:
+          env:
             - name: KAKAO_APP_KEY
               valueFrom:
                 secretKeyRef:
