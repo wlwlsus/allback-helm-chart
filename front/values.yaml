@@ -1,0 +1,20 @@
+replicaCount: 3
+
+image:
+  repository: wlwlsus/front-allback
+  pullPolicy: IfNotPresent
+  tag: 1
+
+service:
+  type: ClusterIP
+  port: 3000
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  hosts:
+    - host: allback.site
+      paths:
+        - /
