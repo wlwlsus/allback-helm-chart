@@ -5,8 +5,9 @@ metadata:
 spec:
   selector:
     app: front
-  type: {{ .Values.service.type }}
   ports:
-    - name: http
-      port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.port }}
+  - protocol: TCP
+    port: {{ (index .Values.front.ports 0).port }}
+    targetPort: {{ (index .Values.front.ports 0).targetPort }}
+  type: LoadBalancer
+  
