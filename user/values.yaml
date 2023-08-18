@@ -7,4 +7,4 @@ user:
       targetPort: 8000
   image:
     repository: wlwlsus/back-user
-    tag: 2
+    tag: 3
