@@ -20,7 +20,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: payment-app-secrets
-                  key: kakao.client_id
+                  key: kakao.app_key
             - name: DATABASE_USERNAME
               valueFrom:
                 secretKeyRef:
