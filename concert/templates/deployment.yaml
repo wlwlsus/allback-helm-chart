@@ -15,5 +15,31 @@ spec:
       containers:
         - name: concert
           image: {{ .Values.concert.image.repository }}:{{ .Values.concert.image.tag }}
+          env:
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: concert-app-secrets
+                  key: database.username
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: concert-app-secrets
+                  key: database.password
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: concert-app-secrets
+                  key: database.url
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: concert-app-secrets
+                  key: database.port
+            - name: DATABASE_USER_DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: concert-app-secrets
+                  key: database.dbName
           ports:
             - containerPort: {{ (index .Values.concert.ports 0).port }}
