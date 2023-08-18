@@ -16,6 +16,17 @@ spec:
         - name: gateway
           image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: gateway-app-secrets
+                  key: redis.host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: gateway-app-secrets
+                  key: redis.port
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}

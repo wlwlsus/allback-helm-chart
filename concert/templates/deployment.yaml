@@ -41,5 +41,15 @@ spec:
                 secretKeyRef:
                   name: concert-app-secrets
                   key: database.dbName
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: concert-app-secrets
+                  key: redis.host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: concert-app-secrets
+                  key: redis.port
           ports:
             - containerPort: {{ (index .Values.concert.ports 0).port }}
