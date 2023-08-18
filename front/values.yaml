@@ -3,7 +3,7 @@ replicaCount: 3
 image:
   repository: wlwlsus/front-allback
   pullPolicy: IfNotPresent
-  tag: 1
+  tag: 2
 
 service:
   type: ClusterIP
