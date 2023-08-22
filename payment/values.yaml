@@ -1,6 +1,6 @@
 payment:
   enabled: true
-  replicas: 3
+  replicas: 1
   ports:
     - name: payment
       port: 80

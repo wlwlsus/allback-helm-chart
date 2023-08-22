@@ -1,6 +1,6 @@
 concert:
   enabled: true
-  replicas: 3
+  replicas: 1
   ports:
     - name: concert
       port: 80
