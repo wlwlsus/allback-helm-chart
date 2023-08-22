@@ -7,7 +7,7 @@ user:
       targetPort: 8000
   image:
     repository: wlwlsus/back-user
-    tag: 4
+    tag: 5
   loadBalancer:
     enabled: true
     port: 80
