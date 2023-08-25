@@ -7,8 +7,8 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
   selector:
     matchLabels:
       app: user
