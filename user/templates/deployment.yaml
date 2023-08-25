@@ -22,11 +22,11 @@ spec:
           image: {{ .Values.user.image.repository }}:{{ .Values.user.image.tag }}
           resources:
             requests:
-              cpu: "300m"
-              memory: "256Mi"
+              cpu: "100m"
+              memory: "300Mi"
             limits:
-              cpu: "800m"
-              memory: "512Mi"
+              cpu: "500m"
+              memory: "1024Mi"
           env:
             - name: KAKAO_CLIENT_ID
               valueFrom:
