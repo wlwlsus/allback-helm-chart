@@ -4,6 +4,11 @@ metadata:
   name: payment-deployment
 spec:
   replicas: {{ .Values.payment.replicas }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
   selector:
     matchLabels:
       app: payment
@@ -15,6 +20,13 @@ spec:
       containers:
         - name: payment
           image: {{ .Values.payment.image.repository }}:{{ .Values.payment.image.tag }}
+          # resources:
+          #   requests:
+          #     cpu: "100m"
+          #     memory: "300Mi"
+          #   limits:
+          #     cpu: "500m"
+          #     memory: "1024Mi"
           env:
             - name: KAKAO_APP_KEY
               valueFrom:

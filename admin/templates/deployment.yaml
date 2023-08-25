@@ -4,6 +4,11 @@ metadata:
   name: admin-deployment
 spec:
   replicas: {{ .Values.admin.replicas }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
   selector:
     matchLabels:
       app: admin
@@ -15,5 +20,12 @@ spec:
       containers:
         - name: admin
           image: {{ .Values.admin.image.repository }}:{{ .Values.admin.image.tag }}
+          # resources:
+          #   requests:
+          #     cpu: "100m"
+          #     memory: "300Mi"
+          #   limits:
+          #     cpu: "500m"
+          #     memory: "1024Mi"
           ports:
             - containerPort: {{ (index .Values.admin.ports 0).port }}
