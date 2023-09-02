@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mysql-concert-ns
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mysql-payment-ns
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mysql-user-ns
